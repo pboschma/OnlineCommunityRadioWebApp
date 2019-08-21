@@ -1,15 +1,16 @@
 import React from 'react';
 import '../style/App.css';
-import RadioInfo from './RadioInfo';
-import RadioAudioControls from './RadioAudioControls';
 import Nav from './Nav';
+import MusicBar from "./MusicBar";
+import HetGeluid from "./HetGeluid";
+import Main from "./Main";
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <RadioInfo />
-      <RadioAudioControls />
+        <Main/>
+      <MusicBar/>
     </div>
   );
 }
