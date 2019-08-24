@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../style/main.sass';
 import DjBox from "./DjBox";
 import AvatarsData from "../data/avatars.json";
@@ -10,10 +10,10 @@ function Main() {
     const data =  AvatarsData.data;
 
     return(
-        <section className="hero is-medium">
+        <section className="hero is-medium-with-nav">
             <div className="hero-body">
-                <div className="container is-fullhd">
-                    {data.map( data => ( data.name === radioData.live_dj ) ? ( <DjBox avatar={data.avatar_url}/> ) : null)}
+                <div className="box" style={{boxShadow: 'unset'}}>
+                    {data.map( data => ( data.name === radioData.live_dj ) ? ( <DjBox avatar={data.avatar_url} key="1" /> ) : null)}
                 </div>
             </div>
         </section>

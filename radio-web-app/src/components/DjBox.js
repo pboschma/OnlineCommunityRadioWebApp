@@ -1,33 +1,34 @@
 import React from 'react'
 import {useSelector} from "react-redux";
+import '../style/dj-box.sass'
 
 function DjBox(props) {
 
+    const beginHour = new Date().getHours();
+    const endHour = beginHour + 1;
     const radioDetails = useSelector( state => state.radio.radioDetails);
 
     return(
-        <>
-        <div className="box">
-            <article className="media">
-                <div className="media-left">
-                    <figure className="image is-100x100">
-                        <img src={props.avatar} />
-                    </figure>
+            <div className="columns is-tablet">
+                <div className="column dj-avatar is-one-third">
+                    <div className="avatar" style={{backgroundImage: 'url(' + props.avatar + ')'}}></div>
                 </div>
-                <div className="media-content">
-                    <div className="content">
+                <div className="column content details">
+                    <h1 className="title is-size-5-mobile">DJ {radioDetails.live_dj}</h1>
+                    <div className="tags">
+                        <span className="tag is-info">Radio DJ</span>
                     </div>
-                    <nav className="level is-mobile">
-                        <div className="level-left">
-                            <h3> {radioDetails.live_dj}
-                                {radioDetails.listeners}</h3>
-
+                    <h2 className="subtitle is-5">{beginHour}:00 - { endHour }:00</h2>
+                    <nav className="level">
+                        <div className="level-item has-text-centered">
+                            <div>
+                                <p className="heading">Luisteraars</p>
+                                <p className="title">{radioDetails.listeners}</p>
+                            </div>
                         </div>
                     </nav>
                 </div>
-            </article>
-        </div>
-            </>
+            </div>
     );
 
 }

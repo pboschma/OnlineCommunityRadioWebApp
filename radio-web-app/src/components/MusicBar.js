@@ -11,17 +11,20 @@ function MusicBar() {
     const avatarData = AvatarData.data;
 
     return(
-        <footer className="footer">
+        <footer className="music-bar">
             <div className="columns is-mobile">
-                <div className="column">
-                    {avatarData.map( data => (data.name === radioData.live_dj) ? (<img className="music-bar-head" src={data.head_url}/>) : null )}
-
+                <div className="column is-narrow ">
                 </div>
-                <div className="column">
-            <RadioInfo />
+                <div className="column is-narrow">
+                        {avatarData.map( data => (data.name === radioData.live_dj) ?
+                            (<div className="music-bar-head" key={data.name+"head"} style={{backgroundImage: 'url(' + data.head_url + ')'}}/>)
+                            : null )}
                 </div>
-                <div className="column">
-            <RadioAudioControls />
+                <div className="column one-quarter">
+                     <RadioInfo />
+                </div>
+                <div className="column is-narrow">
+                    <RadioAudioControls />
                 </div>
             </div>
         </footer>

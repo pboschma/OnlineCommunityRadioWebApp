@@ -6,7 +6,6 @@ import {useDispatch} from "react-redux";
 function RadioInfo() {
 
     const [radioDetails, setRadioDetails] = useState([]);
-    const [hetGeluidData, setHetGeluidData ] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -16,7 +15,7 @@ function RadioInfo() {
         }
         const interval = setInterval(() => {
             getRadioDetails();
-        }, 10000);
+        }, 15000);
         return () => clearInterval(interval);
     }, []);
 
@@ -28,8 +27,10 @@ function RadioInfo() {
     }
 
 
-    return (<div>{radioDetails.live_dj} : <b>{radioDetails.song}</b>
-        <p>{radioDetails.listeners} jonkies die luisteren</p>
+    return (<div className="is-size-6-5 music-bar-info has-text-left radio-song">
+            <div className="square is-hidden-mobile"></div>
+            <p><b>{radioDetails.live_dj}</b></p>
+            <p className="has-text-grey-lighter">{radioDetails.song}</p>
     </div>
     );
 
